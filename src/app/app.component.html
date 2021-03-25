@@ -1,67 +1,28 @@
-<form class="example-form">
-    <li class="mat-form-field--inline">
-     <mat-form-field class="example-full-width">
-        <mat-label>UserName</mat-label>
-        <input matInput placeholder="uname" value="">
-    </mat-form-field>
-</li>
+<form #FirstForm ="ngForm" (ngSubmit)=getValues(FirstForm.val) > 
 
-<!-- First Name and Last Name -->
-<li class="mat-form-field--inline">
-    <mat-form-field class="example-full-width">
-        <mat-label>First Name </mat-label>
-        <input matInput placeholder="fname" value="">
-    </mat-form-field>
+            <input type="text" ng-model name="user"
+            placeholder="enter your user name">
 
-    
-    <mat-form-field class="example-full-width">
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="lname" value="">
-    </mat-form-field>
-</li>
+            <br> <br>
 
+            <input type="text" ng-model name="First Name"
+            placeholder="enter your first name">
+             <br> <br>
+            
+            <input type="text" ng-model name="Last Name"
+            placeholder="enter your last name">
 
-    <!-- Email -->
-    <li class="mat-form-field--inline">
-    <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="Your Email Address">
-    </mat-form-field>
+            <br> <br>
 
+            <input type="password" ng-model name="password"
+            placeholder="enter password">
+            <br> <br>
 
-    <!-- Phone Number -->
-    <mat-form-field class="example-full-width">
-      <input matInput type="tel" placeholder="Your Phone Number">
-    </mat-form-field>
-</li>
+            <input type="radio" required name='gender' value='Male' [(ngModel)]='gender'>Male
+            <br>
+           
+            <input type="radio" required name='gender' value='Female' [(ngModel)]='gender'>Female
+            <br>
 
-</form>
-
-<input type="submit" value="Submit">
-
-<!-- ngforms in the google -->
-
-
-
-
-<!--<form>
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <input type="submit" value="Submit">
-</form>
--->
-
-
-
-
-<!--validation -->
-<!--test cases-->
-<!-- create a interactive form with the following fields
-1. userName
-2. firstName box     LastName box
-4. Email bpx         PhoneNumber box
-6.        submit Button
-7. angular pop up using  dilog box called "user created"-->
-
-<!--how to add validations in TS -->
+            <button>submit</button>
+   </form>
