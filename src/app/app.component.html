@@ -1,28 +1,69 @@
-<form #FirstForm ="ngForm" (ngSubmit)=getValues(FirstForm.val) > 
 
-            <input type="text" ng-model name="user"
-            placeholder="enter your user name">
+<h2>Form using angular ng model </h2>
+ <form [formGroup]="guestForm" novalidate> 
+            <!-- ng model value is similar to id-->
 
-            <br> <br>
-
-            <input type="text" ng-model name="First Name"
-            placeholder="enter your first name">
+            <label>First Name: </label>
+            <input type="text"  ng-model name="First Name"placeholder="First Name">
              <br> <br>
+
+
             
-            <input type="text" ng-model name="Last Name"
-            placeholder="enter your last name">
+            <label>Last Name: </label>
+            <input type="text" ng-model name="Last Name"placeholder="Enter last name">
+             <br> <br>
 
+            <label>Email: </label>
+            <input type="text" name="name" ng-model name="email" placeholder="Enter Email">
             <br> <br>
 
-            <input type="password" ng-model name="password"
-            placeholder="enter password">
-            <br> <br>
+            <label>Phone Number: </label>     
+            <input type="text" ng-model name="password" placeholder="Phone Number">
+            <br><br>
 
+            <label>Country</label>
+            <select placeholder="Phantasyland" (change)="changeCountry($event.target.value)">
+            <option *ngFor ="let count of countryList">{{count.name}} </option>
+            </select>
+            
+            <h4>Gender</h4>
             <input type="radio" required name='gender' value='Male' [(ngModel)]='gender'>Male
             <br>
            
-            <input type="radio" required name='gender' value='Female' [(ngModel)]='gender'>Female
+            <input type="radio" required name='gender' value='Female' [(ngModel)]='gender'>Female 
             <br>
+            <br>
+             
+            
+            <label for="age">Age</label>
+            <input type='number' id="age" formControlName="age">
+            <br>
+            <br>
+            
+            <label for="date">Date of birth</label>
+            <input formControlName="date" id="date" type="date" />        
+            <br> <br>
+            <mat-slide-toggle>Terms and Conditions</mat-slide-toggle>
+            <br><br>
+            
+            <button type="submit" value="Submit">Submit</button> 
+            <button type="button" value="Submit">Cancel</button>
 
-            <button>submit</button>
    </form>
+
+
+   <!-- 
+As a developer, you will be developing an angular form with a submit and cancel button. 
+
+Form fields:
+1.  First name  - text field
+2.  Last name  - text field
+3.  Email  - text field
+4.  Phone number  - text field
+5.  Gender - checkbox(Male, Female)
+6.  Date of Birth - date field with calendar
+7.  Country -  dropdown ( list of countries)
+8.  Terms and conditions - toggle
+9.  Age: - number field
+10. Submit and cancel buttons
+   -->
