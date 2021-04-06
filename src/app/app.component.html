@@ -1,69 +1,103 @@
 
-<h2>Form using angular ng model </h2>
- <form [formGroup]="guestForm" novalidate> 
-            <!-- ng model value is similar to id-->
-
-            <label>First Name: </label>
-            <input type="text"  ng-model name="First Name"placeholder="First Name">
-             <br> <br>
+<div class="container mt-2 p-5 bg-secondary text-white">
+<form #FirstForm ="ngForm">
 
 
-            
-            <label>Last Name: </label>
-            <input type="text" ng-model name="Last Name"placeholder="Enter last name">
-             <br> <br>
 
-            <label>Email: </label>
-            <input type="text" name="name" ng-model name="email" placeholder="Enter Email">
-            <br> <br>
-
-            <label>Phone Number: </label>     
-            <input type="text" ng-model name="password" placeholder="Phone Number">
-            <br><br>
-
-            <label>Country</label>
-            <select placeholder="Phantasyland" (change)="changeCountry($event.target.value)">
-            <option *ngFor ="let count of countryList">{{count.name}} </option>
-            </select>
-            
-            <h4>Gender</h4>
-            <input type="radio" required name='gender' value='Male' [(ngModel)]='gender'>Male
-            <br>
-           
-            <input type="radio" required name='gender' value='Female' [(ngModel)]='gender'>Female 
-            <br>
-            <br>
-             
-            
-            <label for="age">Age</label>
-            <input type='number' id="age" formControlName="age">
-            <br>
-            <br>
-            
-            <label for="date">Date of birth</label>
-            <input formControlName="date" id="date" type="date" />        
-            <br> <br>
-            <mat-slide-toggle>Terms and Conditions</mat-slide-toggle>
-            <br><br>
-            
-            <button type="submit" value="Submit">Submit</button> 
-            <button type="button" value="Submit">Cancel</button>
-
-   </form>
+<div class="form-group">
+<label>First Name</label>
+<input class="form-control" type="text" [(ngModel)] = "userModel.firstName"   name="firstName"
+          placeholder="enter your first name"required #firstName="ngModel" minlength="10"[class.is-invalid]="firstName.invalid&&firstName.touched">
+<span [class.d-none]="firstName.valid||firstName.untouched" class="text-danger"> FirstName Required**</span>
 
 
-   <!-- 
-As a developer, you will be developing an angular form with a submit and cancel button. 
 
-Form fields:
-1.  First name  - text field
-2.  Last name  - text field
-3.  Email  - text field
-4.  Phone number  - text field
-5.  Gender - checkbox(Male, Female)
-6.  Date of Birth - date field with calendar
-7.  Country -  dropdown ( list of countries)
-8.  Terms and conditions - toggle
-9.  Age: - number field
-10. Submit and cancel buttons
-   -->
+</div>
+<div class="form-group">
+<label>Last Name</label>
+<input class="form-control" type="text" [(ngModel)]="userModel.lastName" name="lastName"
+          placeholder="enter your last name" required #lastName="ngModel" minlength="10"[class.is-invalid]="
+lastName.invalid&&lastName.touched">
+<span [class.d-none]="lastName.valid||lastName.untouched" class="text-danger"> LastName Required**</span>
+
+</div>
+<div class="form-group">
+<label>Email</label>
+<input class="   form-control" type="Email" [(ngModel)]="userModel.email" name="email"
+              placeholder="enter Email" required #email="ngModel" [class.is-invalid]="
+email.invalid&&email.touched">
+<span [class.d-none]="email.valid||email.untouched" class="text-danger">Email Required**</span>
+
+</div>
+<div class="form-group">
+<label>Phone number</label>
+<input class="   form-control" type="Phone number" [(ngModel)]="userModel.phoneNumber" name="phoneNumber"
+                  placeholder="enter Phone number " required #phoneNumber="ngModel"minlength="10"[class.is-invalid]="phoneNumber.invalid&&phoneNumber.touched">
+<span [class.d-none]="phoneNumber.valid||phoneNumber.untouched" class="text-danger">PhoneNumber Required**</span>
+ 
+
+</div>
+<div class="form-group">
+<label>Gender</label>
+
+
+<div  class=form-check><input class="   form-check-input" type="radio" required name='gender' value='Male'><label>Male</label>
+</div>
+<div class=form-check>
+<input  class="   form-check-input" type="radio" required name='gender' value='Female'><label>Female</label>
+</div>
+
+</div>
+<div class="form-group">
+<label>Date of Birth</label>
+<input class="   form-control" type="Date of Birth" [(ngModel)]="userModel.dateOfBirth" name="dateOfBirth"placeholder="enter Date of Birth"required #dateOfBirth="ngModel"[class.is-invalid]="dateOfBirth.invalid&&dateOfBirth.touched">
+<span [class.d-none]="dateOfBirth.valid||dateOfBirth.untouched" class="text-danger">Date Of Birth Required**</span>
+</div>
+
+<div>
+ 
+<label for="country">Country</label>
+
+<select class="form-control select_style1" [(ngModel)]='userModel.country' name="country" required #country="ngModel" [class.is-invalid]="
+country.invalid&&country.touched">
+<option>India</option>
+<option>United States of America</option>
+<option>Australia</option>
+<option>U.K</option>
+<option>Canada</option>
+</select>
+
+
+<span [class.d-none]="country.valid||country.untouched" class="text-danger">Country Required**</span>
+
+
+</div>
+
+
+<div class="form-group">
+<label>Age</label>
+<input class="form-control" type="number" [(ngModel)]="userModel.age" name="age"
+            placeholder="enter Age "required #age="ngModel"[class.is-invalid]="age.invalid&&age.touched">
+
+<span [class.d-none]="age.valid||age.untouched" class="text-danger">Age Required**</span>
+</div>
+<div class="form-check">
+<input class="form-check-input" name="check" [(ngModel)]="userModel.check" type="checkbox">
+<label class="form-check-label">Terms and Conditions</label>
+
+</div>
+
+<button class="btn btn-info" type="submit" value="Submit">Submit</button>
+<button class="btn btn-info ml-2"type="button" value="Submit">Cancel</button>
+
+
+
+
+
+
+ 
+
+</form>
+
+</div>
+
